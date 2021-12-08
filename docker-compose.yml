@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  tiktokauto:
+    environment:
+      SF_USERNAME_ENV: "${SF_USERNAME_ENV}"
+      SF_PASSWORD_ENV: "${SF_PASSWORD_ENV}"
+    build: 
+      context: ./marketshareautomation
+      dockerfile: Dockerfile
+    container_name: marketshareautomation
+    volumes:
+      - ./tiktokautomation:/usr/src/app
+    ports:
+      - 5000:8080
+    restart: unless-stopped
